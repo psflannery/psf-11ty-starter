@@ -1,0 +1,9 @@
+.skip-link {
+  position: absolute;
+  top: clamp(1.09rem, get-size('400') + 0.47vw, get-size('500'));
+  left: clamp(1.09rem, get-size('400') + 0.47vw, get-size('500'));
+
+  &:not(:focus) {
+    @extend .visually-hidden;
+  }
+}

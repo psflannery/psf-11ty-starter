@@ -1,0 +1,114 @@
+/**
+ * SIZE SCALE
+ * This is a Perfect Fourth scale that powers all the utilities that
+ * it is relevant for (font-size, margin, padding).
+ */
+$gorko-size-scale: (
+  '300': clamp(0.7rem, 0.66rem + 0.2vw, 0.8rem),
+  '400': clamp(0.88rem, 0.83rem + 0.24vw, 1rem),
+  '500': clamp(1.09rem, 1rem + 0.47vw, 1.33rem),
+  '600': clamp(1.37rem, 1.21rem + 0.8vw, 1.78rem),
+  '700': clamp(1.71rem, 1.45rem + 1.29vw, 2.37rem),
+  '800': clamp(2.14rem, 1.74rem + 1.99vw, 3.16rem),
+  '900': clamp(2.67rem, 2.07rem + 3vw, 4.21rem),
+  '1000': clamp(3.34rem, 2.45rem + 4.43vw, 5.61rem)
+);
+
+/**
+ * COLORS
+ * Colors are shared between backgrounds and text by default. 
+ * You can also use them to power borders, fills or shadows, for example.
+ */
+$gorko-colors: (
+  'dark': #38445b,
+  'dark-shade': #263147,
+  'dark-glare': #505c73,
+  'light': #efefef,
+  'light-shade': #fdfdfd,
+  'light-glare': #fdfbf3,
+  'primary': #513aa6
+);
+
+/**
+ * METRICS
+ * Various misc metrics to use around the site
+ */
+$metrics: (
+  'wrap-max-width': 120ch,
+  'md-breakpoint': 48rem,
+  'lg-breakpoint': 64rem,
+  'xl-breakpoint': 80rem
+);
+
+/**
+ * CORE CONFIG
+ * This powers everything from utility class generation to breakpoints
+ * to enabling/disabling pre-built components/utilities.
+ */
+$gorko-config: (
+  'bg': (
+    'items': $gorko-colors,
+    'output': 'standard',
+    'property': 'background'
+  ),
+  'color': (
+    'items': $gorko-colors,
+    'output': 'standard',
+    'property': 'color'
+  ),
+  'flow-space': (
+    'items': $gorko-size-scale,
+    'output': 'responsive',
+    'property': '--flow-space'
+  ),
+  'font': (
+    'items': (
+      'base': 'sans-serif',
+      'sans': '"Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif'
+    ),
+    'output': 'standard',
+    'property': 'font-family'
+  ),
+  'gap-top': (
+    'items': $gorko-size-scale,
+    'output': 'responsive',
+    'property': 'margin-top'
+  ),
+  'leading': (
+    'items': (
+      'loose': 1.7,
+      'tight': 1.3,
+      'flat': '1.1'
+    ),
+    'output': 'standard',
+    'property': 'line-height'
+  ),
+  'measure': (
+    'items': (
+      'micro': '10ch',
+      'compact': '30ch',
+      'short': '40ch',
+      'long': '65ch'
+    ),
+    'output': 'responsive',
+    'property': 'max-width'
+  ),
+  'text': (
+    'items': $gorko-size-scale,
+    'output': 'responsive',
+    'property': 'font-size'
+  ),
+  'weight': (
+    'items': (
+      'normal': 400,
+      'bold': 900
+    ),
+    'output': 'standard',
+    'property': 'font-weight'
+  ),
+  'breakpoints': (
+    'md': #{'(min-width: ' + map-get($metrics, 'md-breakpoint') + ')'},
+    'lg': #{'(min-width: ' + map-get($metrics, 'lg-breakpoint') + ')'},
+    'xl': #{'(min-width: ' + map-get($metrics, 'xl-breakpoint') + ')'}
+  )
+);

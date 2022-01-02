@@ -1,0 +1,30 @@
+{
+  "name": "psf-11ty-starter",
+  "version": "1.0.0",
+  "description": "A small little eleventy starter project.",
+  "main": ".eleventy.js",
+  "scripts": {
+    "start": "npx gulp && concurrently 'npx gulp watch' 'npx eleventy --serve --quiet'",
+    "production": "NODE_ENV=production npx gulp && NODE_ENV=production eleventy"
+  },
+  "keywords": [],
+  "author": "Paul Flannery <psflannery@gmail.com> (https://paulflannery.co.uk/)",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-cache-assets": "^2.3.0",
+    "@11ty/eleventy-plugin-rss": "^1.1.2",
+    "concurrently": "^6.5.1",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-sass": "^5.1.0",
+    "html-minifier": "^4.0.0",
+    "prettier": "^2.5.1",
+    "sass": "^1.45.1"
+  },
+  "dependencies": {
+    "gorko": "^0.9.0",
+    "moment": "^2.29.1"
+  }
+}

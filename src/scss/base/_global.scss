@@ -1,0 +1,55 @@
+// Global styles start
+:root {
+  --flow-space: #{get-size('600')};
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+  font-display: swap;
+  text-rendering: optimizeSpeed;
+  overflow-x: hidden;
+}
+
+main {
+  flex: 1 0 auto;
+  &:focus {
+    outline: none;
+  }
+}
+
+hr {
+  --flow-space: #{get-size('1000')};
+
+  width: 100%;
+  display: block;
+  height: 0.2em;
+  border: none;
+  margin: get-size('900') auto;
+}
+
+// For when metric attributes are added to img elements
+img {
+  height: auto;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: minmax(0, max-content) 1fr;
+  grid-gap: 0.5rem 1.5rem;
+}
+
+[id] {
+  scroll-margin-top: get-size('900');
+}
+
+a:not([class]) {
+  color: currentColor;
+}
+
+:focus {
+  outline: 2px dashed get-color('primary');
+  outline-offset: 0.25rem;
+}

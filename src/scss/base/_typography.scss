@@ -1,0 +1,30 @@
+body {
+  font-size: get-size('400');
+  @include apply-utility('font', 'base');
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 900;
+
+  @include apply-utility('font', 'sans');
+  @include apply-utility('leading', 'flat');
+}
+
+h1 {
+  font-size: get-size('700');
+}
+
+h2 {
+  font-size: get-size('600');
+}
+
+h3 {
+  font-size: get-size('500');
+}
+
+h4 {
+  font-size: get-size('400');
+}
