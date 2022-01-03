@@ -1,6 +1,7 @@
 // Plugins
 // const Image = require('@11ty/eleventy-img');
 const rssPlugin = require('@11ty/eleventy-plugin-rss');
+const fs = require('fs');
 
 // Filters
 const dateFilter = require('./src/filters/date-filter.js');
@@ -33,8 +34,8 @@ const isProduction = process.env.NODE_ENV === 'production';
 // }
 
 module.exports = config => {
-  // config.addPassthroughCopy('./src/fonts');
-  // config.addPassthroughCopy('./src/js');
+  config.addPassthroughCopy('./src/fonts');
+  config.addPassthroughCopy('./src/js');
 
   // Add filters
   config.addFilter('dateFilter', dateFilter);
@@ -56,6 +57,21 @@ module.exports = config => {
 
   // Tell 11ty to use the .eleventyignore and ignore our .gitignore file
   config.setUseGitIgnore(false);
+
+  // 404
+  config.setBrowserSyncConfig({
+    callbacks: {
+      ready: function (err, browserSync) {
+        const content_404 = fs.readFileSync('dist/404.html');
+
+        browserSync.addMiddleware('*', (req, res) => {
+          // Provides the 404 content without redirect.
+          res.write(content_404);
+          res.end();
+        });
+      }
+    }
+  });
 
   return {
     markdownTemplateEngine: 'njk',
